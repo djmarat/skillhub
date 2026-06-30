@@ -27,9 +27,7 @@ if str(_SRC) not in sys.path:
     sys.path.insert(0, str(_SRC))
 
 from skillhub.cli import (  # noqa: E402
-    Skill,
     load_registry,
-    trust_score,
     _load_real_trust,
     _score,
     _validate_record,
