@@ -363,8 +363,6 @@ def _tool_install(args: dict) -> dict:
 def _tool_rate(args: dict) -> dict:
     name = args.get("name", "")
     success = bool(args.get("success", False))
-    latency = args.get("latency_ms")
-    runtime = args.get("runtime", "") or ""
     if not name:
         return _error("name required")
     profile_mark_rated(name, success=success)
@@ -420,7 +418,7 @@ def _tool_probe(args: dict) -> dict:
         return _error(f"skill not found: {name}")
 
     # Tempdir sandbox
-    sandbox = Path(tempfile.mkdtemp(prefix=f"skillhub-probe-"))
+    sandbox = Path(tempfile.mkdtemp(prefix="skillhub-probe-"))
     real_home = os.environ.get("HOME", str(Path.home()))
     try:
         os.environ["HOME"] = str(sandbox)
@@ -493,6 +491,7 @@ def _tool_probe(args: dict) -> dict:
             checks.append({"name": "yaml_parses", "ok": False, "detail": str(e)})
 
         all_ok = all(c["ok"] for c in checks)
+        verdict = "PASS — safe to install" if all_ok else "FAIL — see checks"
         return _result({
             "name": name,
             "version": skill.version,
@@ -501,7 +500,7 @@ def _tool_probe(args: dict) -> dict:
             "modified_user_state": False,
             "checks": checks,
             "ok": all_ok,
-            "verdict": "PASS — safe to install" if all_ok else "FAIL — see checks",
+            "verdict": verdict,
         })
     finally:
         os.environ["HOME"] = real_home

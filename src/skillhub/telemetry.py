@@ -97,7 +97,6 @@ def stats(name: str, window_days: int = WINDOW_DAYS) -> dict:
     events = [e for e in _read_events() if e.get("ts", 0) >= cutoff and e.get("name") == name]
     rates = [e for e in events if e.get("event") == "rate" and e.get("success") is not None]
     installs = [e for e in events if e.get("event") == "install"]
-    latencies = [e.get("latency_ms") for e in events if e.get("latency_ms") is not None]
 
     success_rate = None
     if rates:
