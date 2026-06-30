@@ -1,0 +1,18 @@
+{
+  "manifest_version": "0.4",
+  "name": "djmarat/skillhub-test",
+  "display_name": "skillhub test",
+  "version": "0.2.0",
+  "description": "test",
+  "author": {"name": "test"},
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"]
+    }
+  },
+  "compatibility": {"platforms": ["darwin"], "runtimes": {"node": ">=18"}}
+}

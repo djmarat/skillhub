@@ -1,0 +1,64 @@
+{
+  "manifest_version": "0.3",
+  "name": "skillhub",
+  "display_name": "skillhub — Trusted Skill Marketplace",
+  "version": "0.2.0",
+  "description": "Trusted skill marketplace for AI agents. 254+ curated MCP servers as skills. 15 tools, auto-discovered resources, telemetry, dry-run probes, curated bundles.",
+  "long_description": "skillhub packages the official MCP registry and top SkillsMP skill manifests into a single browsable, installable marketplace the agent can call directly. 15 MCP tools plus auto-discovered resources. Co-install recommendations, telemetry-driven ratings, dry-run probes, verified/official/community trust badges, four curated bundles.",
+  "author": {
+    "name": "skillhub contributors",
+    "url": "https://djmarat.github.io/skillhub/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/djmarat/skillhub"
+  },
+  "homepage": "https://djmarat.github.io/skillhub/",
+  "keywords": ["marketplace", "registry", "agent", "mcp", "skills"],
+  "license": "MIT",
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/server/index.js"],
+      "env": {
+        "SKILLHUB_PYTHON": "${user_config.python_path}"
+      }
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "linux", "win32"],
+    "runtimes": {
+      "node": ">=18",
+      "python": ">=3.10"
+    }
+  },
+  "tools": [
+    {"name": "search",         "description": "Search the skillhub registry"},
+    {"name": "show",           "description": "Show full manifest for one skill"},
+    {"name": "install",        "description": "Install a skill into a runtime"},
+    {"name": "validate",       "description": "Validate a skill.yaml"},
+    {"name": "rate",           "description": "Record whether a skill worked"},
+    {"name": "stats",          "description": "Community success_rate + latency"},
+    {"name": "recommend",      "description": "Co-install recommendations"},
+    {"name": "probe",          "description": "Dry-run install healthcheck"},
+    {"name": "profile",        "description": "Local install profile"},
+    {"name": "update",         "description": "Refresh an installed skill"},
+    {"name": "uninstall",      "description": "Remove an installed skill"},
+    {"name": "collections",    "description": "List curated skill bundles"},
+    {"name": "collection",     "description": "Show one bundle details"},
+    {"name": "bundle_install", "description": "Install an entire bundle"},
+    {"name": "bundle_suggest", "description": "Suggest bundle based on installed"}
+  ],
+  "tools_generated": false,
+  "user_config": {
+    "python_path": {
+      "type": "string",
+      "title": "Python interpreter path",
+      "description": "Path to the Python interpreter (leave default for system python3).",
+      "required": false,
+      "default": "python3"
+    }
+  }
+}

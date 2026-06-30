@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-06-30",
+  "collections": [
+    {
+      "id": "ai-researcher",
+      "title": "AI Researcher Pack",
+      "description": "Tools for searching the web, papers and bringing live context into your agent.",
+      "tags": ["research", "search", "papers", "docs"],
+      "skills": ["exa", "tavily", "arxiv-search", "context7", "huggingface-hub"],
+      "rationale": "These five cover the research loop: find docs (exa, context7), check arxiv (arxiv-search), pull live models (huggingface-hub), web-search alternatives (tavily)."
+    },
+    {
+      "id": "pdf-document",
+      "title": "PDF & Document Pack",
+      "description": "Convert, OCR and trim document files (PDF, images, scans).",
+      "tags": ["document", "pdf", "ocr"],
+      "skills": ["pdf-md", "image-ocr"],
+      "rationale": "Anything that takes a binary document and gives an agent something to read."
+    },
+    {
+      "id": "agent-foundation",
+      "title": "Agent Foundation Pack",
+      "description": "Cross-cutting infrastructure skills every agent eventually needs.",
+      "tags": ["utility", "trace", "environment"],
+      "skills": ["env-doctor", "trace-loop", "shell-safe", "json-shape"],
+      "rationale": "Stable, low-trust-churn utilities: environment inspection, tracing, shell-quoting, JSON shaping."
+    },
+    {
+      "id": "data-stack",
+      "title": "Database & Backend Pack",
+      "description": "Connect agents to live databases, search systems and backends.",
+      "tags": ["data", "database"],
+      "skills": ["supabase", "huggingface-hub", "github-pr-review"],
+      "rationale": "Spans SQL via Supabase, ML infrastructure, code review for source-of-truth backends."
+    }
+  ]
+}
