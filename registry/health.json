@@ -1,0 +1,1095 @@
+{
+  "checked_at": 1782846380.467996,
+  "total": 202,
+  "ok": 38,
+  "broken": 164,
+  "unknown": 0,
+  "results": {
+    "pdf-md": {
+      "ok": true,
+      "executable": "python",
+      "on_path": true,
+      "command": "python -m pdf_md",
+      "reason": null
+    },
+    "json-shape": {
+      "ok": true,
+      "executable": "python",
+      "on_path": true,
+      "command": "python -m json_shape",
+      "reason": null
+    },
+    "agentsearch": {
+      "ok": false,
+      "url": "https://api.agentsearch.dev/v1",
+      "reason": "unreachable: URLError"
+    },
+    "browserbase": {
+      "ok": false,
+      "url": "https://api.browserbase.com/v1",
+      "reason": "unreachable: HTTPError"
+    },
+    "exa": {
+      "ok": false,
+      "url": "https://mcp.exa.ai/v1",
+      "reason": "unreachable: HTTPError"
+    },
+    "context7": {
+      "ok": false,
+      "url": "https://mcp.context7.ai/v1",
+      "reason": "unreachable: HTTPError"
+    },
+    "tavily": {
+      "ok": false,
+      "url": "https://mcp.tavily.com/v1",
+      "reason": "unreachable: HTTPError"
+    },
+    "git-summary": {
+      "ok": true,
+      "executable": "python",
+      "on_path": true,
+      "command": "python -m git_summary",
+      "reason": null
+    },
+    "shell-safe": {
+      "ok": true,
+      "reason": null
+    },
+    "env-doctor": {
+      "ok": true,
+      "executable": "python",
+      "on_path": true,
+      "command": "python -m env_doctor",
+      "reason": null
+    },
+    "uuid-utils": {
+      "ok": false,
+      "executable": "uuid-utils",
+      "on_path": false,
+      "command": "uuid-utils",
+      "reason": "executable 'uuid-utils' not on PATH"
+    },
+    "regex-lab": {
+      "ok": false,
+      "url": "https://api.regexlab.dev/v1",
+      "reason": "unreachable: URLError"
+    },
+    "image-ocr": {
+      "ok": false,
+      "executable": "image-ocr",
+      "on_path": false,
+      "command": "image-ocr",
+      "reason": "executable 'image-ocr' not on PATH"
+    },
+    "trace-loop": {
+      "ok": true,
+      "executable": "python",
+      "on_path": true,
+      "command": "python -m trace_loop",
+      "reason": null
+    },
+    "diff-merge": {
+      "ok": false,
+      "executable": "diff-merge",
+      "on_path": false,
+      "command": "diff-merge",
+      "reason": "executable 'diff-merge' not on PATH"
+    },
+    "http-fetch": {
+      "ok": false,
+      "executable": "http-fetch",
+      "on_path": false,
+      "command": "http-fetch",
+      "reason": "executable 'http-fetch' not on PATH"
+    },
+    "huggingface-hub": {
+      "ok": true,
+      "status": 200,
+      "url": "https://huggingface.co/mcp/v1",
+      "reason": null
+    },
+    "supabase": {
+      "ok": false,
+      "url": "https://mcp.supabase.com/v1",
+      "reason": "unreachable: HTTPError"
+    },
+    "github-pr-review": {
+      "ok": true,
+      "executable": "python",
+      "on_path": true,
+      "command": "python -m gh_pr_review",
+      "reason": null
+    },
+    "arxiv-search": {
+      "ok": true,
+      "executable": "python",
+      "on_path": true,
+      "command": "python -m arxiv_search",
+      "reason": null
+    },
+    "mcp": {
+      "ok": false,
+      "url": "https://sh.inference.ac",
+      "reason": "unreachable: HTTPError"
+    },
+    "docs-mcp": {
+      "ok": true,
+      "status": 200,
+      "url": "https://tandem.ac/mcp",
+      "reason": null
+    },
+    "trading": {
+      "ok": false,
+      "url": "https://mcp.lona.agency/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "atars-mcp": {
+      "ok": false,
+      "url": "https://mcp.aarna.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "abmeter": {
+      "ok": true,
+      "status": 200,
+      "url": "https://mcp.abmeter.ai",
+      "reason": null
+    },
+    "mcp-server": {
+      "ok": false,
+      "url": "https://api.adadvisor.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "adeu": {
+      "ok": false,
+      "executable": "mcp-adeu",
+      "on_path": false,
+      "command": "mcp-adeu",
+      "reason": "executable 'mcp-adeu' not on PATH"
+    },
+    "google-ads": {
+      "ok": false,
+      "url": "https://mcp.adramp.ai/sse",
+      "reason": "unreachable: HTTPError"
+    },
+    "meta-ads-mcp": {
+      "ok": false,
+      "url": "https://mcp.adweave.ai/meta-ads-mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "agentberg": {
+      "ok": false,
+      "url": "https://agentberg.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "agentdm": {
+      "ok": true,
+      "status": 200,
+      "url": "https://api.agentdm.ai/api/v1/grid",
+      "reason": null
+    },
+    "graffeo": {
+      "ok": false,
+      "url": "https://api.agenticshelf.ai/m/graffeo/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "directory": {
+      "ok": false,
+      "url": "https://mcp.agenticterminal.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "agentra": {
+      "ok": false,
+      "url": "https://api.agentrapay.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "catalog": {
+      "ok": false,
+      "url": "https://mcp.airshelf.ai/mcp",
+      "reason": "unreachable: timeout"
+    },
+    "spotdb": {
+      "ok": false,
+      "executable": "mcp-spotdb",
+      "on_path": false,
+      "command": "mcp-spotdb",
+      "reason": "executable 'mcp-spotdb' not on PATH"
+    },
+    "alphacreek-mcp": {
+      "ok": false,
+      "url": "https://mcp.alphacreek.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "alpic-mcp": {
+      "ok": false,
+      "url": "https://mcp.alpic.ai",
+      "reason": "unreachable: HTTPError"
+    },
+    "test-mcp-server": {
+      "ok": false,
+      "url": "https://test.alpic.ai/",
+      "reason": "unreachable: URLError"
+    },
+    "ambix": {
+      "ok": false,
+      "url": "https://mcp.ambix.ai",
+      "reason": "unreachable: HTTPError"
+    },
+    "armor-mcp": {
+      "ok": false,
+      "url": "https://mcp.anomalyarmor.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "anzenna": {
+      "ok": false,
+      "url": "https://mcp.anzenna.ai/sse",
+      "reason": "unreachable: HTTPError"
+    },
+    "deploy-app": {
+      "ok": false,
+      "url": "https://api-v2.appdeploy.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "registry": {
+      "ok": false,
+      "url": "https://arclan.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "artidrop": {
+      "ok": false,
+      "url": "https://artidrop.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "supershopping": {
+      "ok": false,
+      "url": "https://supershopping-mcp.atdev.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "paseo": {
+      "ok": false,
+      "url": "https://api.augmentev.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "auralogs": {
+      "ok": false,
+      "url": "https://mcp.auralogs.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "docs": {
+      "ok": false,
+      "url": "https://auteng.ai/mcp/docs",
+      "reason": "unreachable: HTTPError"
+    },
+    "ctxl": {
+      "ok": false,
+      "executable": "mcp-ctxl",
+      "on_path": false,
+      "command": "mcp-ctxl",
+      "reason": "executable 'mcp-ctxl' not on PATH"
+    },
+    "computeback": {
+      "ok": false,
+      "executable": "mcp-computeback",
+      "on_path": false,
+      "command": "mcp-computeback",
+      "reason": "executable 'mcp-computeback' not on PATH"
+    },
+    "travel": {
+      "ok": false,
+      "url": "https://mcp.autonomad.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "auxen": {
+      "ok": false,
+      "url": "https://api.auxen.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "health": {
+      "ok": false,
+      "url": "https://aviado.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "backengine-mcp": {
+      "ok": false,
+      "url": "https://mcp.backengine.ai/mcp",
+      "reason": "unreachable: URLError"
+    },
+    "inferventis-mcp": {
+      "ok": false,
+      "url": "https://mcp-server-295985738387.europe-west1.run.app/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "bareun": {
+      "ok": false,
+      "url": "https://api.bareun.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "baselight": {
+      "ok": true,
+      "status": 200,
+      "url": "https://api.baselight.app/mcp",
+      "reason": null
+    },
+    "local-commerce": {
+      "ok": false,
+      "url": "https://app.bezal.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "bittlebits": {
+      "ok": false,
+      "url": "https://bittlebits.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "universal-mcp": {
+      "ok": false,
+      "url": "https://api.bluenexus.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "grep": {
+      "ok": false,
+      "url": "https://grep.boolsai.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "scan": {
+      "ok": true,
+      "status": 200,
+      "url": "https://boolsai.ai/mcp",
+      "reason": null
+    },
+    "signals": {
+      "ok": true,
+      "status": 200,
+      "url": "https://signals.boolsai.ai/mcp",
+      "reason": null
+    },
+    "bowmark": {
+      "ok": false,
+      "url": "https://api.bowmark.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "knowledge-base": {
+      "ok": false,
+      "url": "https://app.brainattic.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "bringyour": {
+      "ok": true,
+      "status": 200,
+      "url": "https://bringyour.ai/mcp",
+      "reason": null
+    },
+    "bunzee": {
+      "ok": false,
+      "url": "https://bunzee.ai/mcp-server",
+      "reason": "unreachable: HTTPError"
+    },
+    "buron": {
+      "ok": false,
+      "url": "https://app.buron.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "buyersense": {
+      "ok": false,
+      "url": "https://mcp.buyersense.ai/mcp",
+      "reason": "unreachable: URLError"
+    },
+    "catalog-api": {
+      "ok": true,
+      "status": 200,
+      "url": "https://mcp.buywhere.ai/mcp",
+      "reason": null
+    },
+    "embedded-docs": {
+      "ok": false,
+      "url": "https://mcp.byteask.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "byteray-mcp": {
+      "ok": false,
+      "url": "https://mcp.byteray.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "server": {
+      "ok": false,
+      "url": "https://calendarmcp.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "calfeed": {
+      "ok": false,
+      "url": "https://calfeed.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "canaryusers": {
+      "ok": false,
+      "url": "https://www.canaryusers.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "canvora": {
+      "ok": false,
+      "url": "https://api.canvora.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "library": {
+      "ok": true,
+      "status": 200,
+      "url": "https://childadhd.ai/api/mcp/v1",
+      "reason": null
+    },
+    "intelligence": {
+      "ok": false,
+      "url": "https://api.chinamarketing.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "salesforce-mcp": {
+      "ok": false,
+      "url": "https://mcp.cirra.ai/sfdc/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "compliance": {
+      "ok": false,
+      "url": "https://mcp.clarid.ai/mcp",
+      "reason": "unreachable: URLError"
+    },
+    "hmda": {
+      "ok": true,
+      "status": 200,
+      "url": "https://api.clarid.ai/mcp",
+      "reason": null
+    },
+    "markets": {
+      "ok": false,
+      "url": "https://mcp.clawterminal.ai",
+      "reason": "unreachable: HTTPError"
+    },
+    "contabo": {
+      "ok": false,
+      "url": "https://contabo.run.mcp.com.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "hapi-mcp": {
+      "ok": false,
+      "url": "https://{HAPI_FQDN}:{HAPI_PORT}/mcp",
+      "reason": "unreachable: InvalidURL"
+    },
+    "lenny-rachitsky-podcast": {
+      "ok": false,
+      "url": "https://lenny-rachitsky.run.mcp.com.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "linkedin": {
+      "ok": false,
+      "url": "https://linkedin.run.mcp.com.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "openai-tools": {
+      "ok": false,
+      "url": "https://openai-tools.run.mcp.com.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "petstore": {
+      "ok": false,
+      "url": "https://petstore.run.mcp.com.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "skills-search": {
+      "ok": false,
+      "url": "https://skills-sh.run.mcp.com.ai/mcp",
+      "reason": "unreachable: URLError"
+    },
+    "strava": {
+      "ok": false,
+      "url": "https://strava.run.mcp.com.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "compel": {
+      "ok": false,
+      "url": "https://compeller.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "constellation-finance-mcp": {
+      "ok": false,
+      "url": "https://mcp.constellationfinance.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "conveo": {
+      "ok": false,
+      "url": "https://app.conveo.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "cookiy": {
+      "ok": false,
+      "url": "https://s-api.cookiy.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "notes": {
+      "ok": false,
+      "url": "https://nebula.cosmonote.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "crane-ledger": {
+      "ok": false,
+      "url": "https://api.craneledger.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "counterparty-intelligence": {
+      "ok": true,
+      "status": 200,
+      "url": "https://data.crestsystems.ai/mcp",
+      "reason": null
+    },
+    "d50-platform": {
+      "ok": false,
+      "url": "https://app.d50.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "dataforb2b": {
+      "ok": false,
+      "url": "https://mcp.dataforb2b.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "creator-skill": {
+      "ok": false,
+      "url": "https://deinai.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "creator-skill-v2": {
+      "ok": false,
+      "url": "https://skill.deinai.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "aws-pricing-calculator": {
+      "ok": false,
+      "url": "https://calculator.delega.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "dimetrics": {
+      "ok": false,
+      "url": "https://www.dimetrics.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "tvwizard": {
+      "ok": false,
+      "url": "https://tv.djwizard.ai/mcp/",
+      "reason": "unreachable: HTTPError"
+    },
+    "donethat": {
+      "ok": false,
+      "url": "https://mcp.donethat.ai/",
+      "reason": "unreachable: HTTPError"
+    },
+    "drillr": {
+      "ok": false,
+      "url": "https://gateway.drillr.ai/mcp/data",
+      "reason": "unreachable: HTTPError"
+    },
+    "gateway": {
+      "ok": true,
+      "status": 200,
+      "url": "https://app.duvera.ai/mcp",
+      "reason": null
+    },
+    "dynamic-feed": {
+      "ok": false,
+      "url": "https://dynamicfeed.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "sac": {
+      "ok": false,
+      "executable": "mcp-sac",
+      "on_path": false,
+      "command": "mcp-sac",
+      "reason": "executable 'mcp-sac' not on PATH"
+    },
+    "districts": {
+      "ok": true,
+      "status": 200,
+      "url": "https://edusignal.ai/mcp",
+      "reason": null
+    },
+    "enyal": {
+      "ok": false,
+      "url": "https://mcp.enyal.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "xmp4": {
+      "ok": false,
+      "url": "https://mcp.example4.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "mcp-explorium": {
+      "ok": false,
+      "url": "https://mcp-github-registry.explorium.ai/sse",
+      "reason": "unreachable: HTTPError"
+    },
+    "ezel": {
+      "ok": true,
+      "status": 200,
+      "url": "https://app.ezel.ai/mcp",
+      "reason": null
+    },
+    "fantopy": {
+      "ok": false,
+      "url": "https://mcp.fantopy.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "document-processing": {
+      "ok": false,
+      "url": "https://api.filegraph.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "filepad": {
+      "ok": false,
+      "url": "https://api.filepad.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "filtrix-ai": {
+      "ok": false,
+      "url": "https://mcp.filtrix.ai/",
+      "reason": "unreachable: HTTPError"
+    },
+    "fincontext": {
+      "ok": false,
+      "url": "https://fincontext.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "domain-sales": {
+      "ok": true,
+      "status": 200,
+      "url": "https://flipdomain.ai/mcp",
+      "reason": null
+    },
+    "governance-platform": {
+      "ok": false,
+      "url": "https://app.geodesiclabs.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "optibot": {
+      "ok": false,
+      "executable": "mcp-optibot",
+      "on_path": false,
+      "command": "mcp-optibot",
+      "reason": "executable 'mcp-optibot' not on PATH"
+    },
+    "throughline": {
+      "ok": false,
+      "url": "https://getthroughline.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "vet": {
+      "ok": false,
+      "executable": "mcp-vet",
+      "on_path": false,
+      "command": "mcp-vet",
+      "reason": "executable 'mcp-vet' not on PATH"
+    },
+    "mcp-api": {
+      "ok": false,
+      "url": "https://apps.gomarble.ai/mcp-api/sse",
+      "reason": "unreachable: HTTPError"
+    },
+    "gondola": {
+      "ok": false,
+      "url": "https://mcp.gondola.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "shopify-admin-mcp": {
+      "ok": true,
+      "status": 200,
+      "url": "https://mcp.gossiper.io/mcp",
+      "reason": null
+    },
+    "web-search": {
+      "ok": false,
+      "url": "https://api.groundroute.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "database": {
+      "ok": false,
+      "executable": "mcp-database",
+      "on_path": false,
+      "command": "mcp-database",
+      "reason": "executable 'mcp-database' not on PATH"
+    },
+    "dbmcp": {
+      "ok": false,
+      "executable": "mcp-dbmcp",
+      "on_path": false,
+      "command": "mcp-dbmcp",
+      "reason": "executable 'mcp-dbmcp' not on PATH"
+    },
+    "texts": {
+      "ok": true,
+      "status": 200,
+      "url": "https://hermitsh.ai/mcp",
+      "reason": null
+    },
+    "hivewiki": {
+      "ok": false,
+      "url": "https://mcp.hivewiki.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "i18n-agent": {
+      "ok": false,
+      "url": "https://mcp.i18nagent.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "dossier": {
+      "ok": false,
+      "executable": "mcp-dossier",
+      "on_path": false,
+      "command": "mcp-dossier",
+      "reason": "executable 'mcp-dossier' not on PATH"
+    },
+    "inflow": {
+      "ok": false,
+      "url": "https://app.inflowpay.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "the-stall": {
+      "ok": true,
+      "status": 200,
+      "url": "https://the-stall.intuitek.ai/mcp",
+      "reason": null
+    },
+    "inventory-hero": {
+      "ok": false,
+      "url": "https://mcp.prod.inventoryhero.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "seo-audit": {
+      "ok": true,
+      "status": 200,
+      "url": "https://inxy.ai/api/mcp",
+      "reason": null
+    },
+    "ironscout": {
+      "ok": false,
+      "url": "https://mcp.ironscout.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "jeda-ai": {
+      "ok": false,
+      "url": "https://mcp.jeda.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "gpu": {
+      "ok": false,
+      "url": "https://joinmultiplayer.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "just-publish": {
+      "ok": false,
+      "url": "https://mcp.justpublish.ai/",
+      "reason": "unreachable: HTTPError"
+    },
+    "strata": {
+      "ok": false,
+      "url": "https://strata.klavis.ai/mcp/",
+      "reason": "unreachable: HTTPError"
+    },
+    "kolens-mcp": {
+      "ok": false,
+      "url": "https://kolens.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "kontato": {
+      "ok": false,
+      "url": "https://api.kontato.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "krtr": {
+      "ok": false,
+      "url": "https://www.krtr.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "x402-trading-signals": {
+      "ok": false,
+      "url": "https://api.lattiq.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "trust-intelligence": {
+      "ok": false,
+      "url": "https://api.limitguard.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "mlp-tax": {
+      "ok": false,
+      "url": "https://api.lucasandersen.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "game-assets": {
+      "ok": false,
+      "url": "https://mcp.ludo.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "insights": {
+      "ok": false,
+      "url": "https://app.magicinsights.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "marketintell": {
+      "ok": false,
+      "url": "https://api.marketintell.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "masnavi": {
+      "ok": false,
+      "url": "https://masnavi.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "resume": {
+      "ok": true,
+      "status": 200,
+      "url": "https://maxcv.ai/mcp",
+      "reason": null
+    },
+    "analytics": {
+      "ok": false,
+      "url": "https://api.mcpanalytics.ai/auth0",
+      "reason": "unreachable: HTTPError"
+    },
+    "mcpcap": {
+      "ok": false,
+      "executable": "mcp-mcpcap",
+      "on_path": false,
+      "command": "mcp-mcpcap",
+      "reason": "executable 'mcp-mcpcap' not on PATH"
+    },
+    "mrc-data": {
+      "ok": true,
+      "status": 200,
+      "url": "https://api.meacheal.ai/mcp",
+      "reason": null
+    },
+    "squad": {
+      "ok": true,
+      "status": 200,
+      "url": "https://mcp.meetsquad.ai/mcp",
+      "reason": null
+    },
+    "meminal": {
+      "ok": false,
+      "url": "https://meminal.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "web-agent": {
+      "ok": false,
+      "url": "https://mino.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "demo-booking": {
+      "ok": false,
+      "url": "https://www.modulos.ai/api/mcp/",
+      "reason": "unreachable: timeout"
+    },
+    "mcp-workspace": {
+      "ok": false,
+      "url": "https://mcp.moxt.ai/openapi/v1/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "mrmarket-mcp": {
+      "ok": false,
+      "url": "https://mcp.mrmarket.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "memq": {
+      "ok": false,
+      "url": "https://mcp.multinex.ai/mcp/v1",
+      "reason": "unreachable: HTTPError"
+    },
+    "myriade": {
+      "ok": false,
+      "url": "https://app.myriade.ai/mcp/",
+      "reason": "unreachable: HTTPError"
+    },
+    "ens-tools": {
+      "ok": false,
+      "url": "https://namewhisper.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "nashboard-merchants": {
+      "ok": false,
+      "url": "https://nashboard.ai/mcp",
+      "reason": "unreachable: timeout"
+    },
+    "nauro": {
+      "ok": false,
+      "executable": "mcp-nauro",
+      "on_path": false,
+      "command": "mcp-nauro",
+      "reason": "executable 'mcp-nauro' not on PATH"
+    },
+    "human-state": {
+      "ok": false,
+      "url": "https://mcp.nefesh.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "newzai": {
+      "ok": false,
+      "url": "https://api.newzai.ai/mcp/",
+      "reason": "unreachable: HTTPError"
+    },
+    "news-mcp": {
+      "ok": false,
+      "url": "https://api.newzai.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "ninar": {
+      "ok": true,
+      "status": 200,
+      "url": "https://ninar.ai/mcp",
+      "reason": null
+    },
+    "search": {
+      "ok": true,
+      "status": 200,
+      "url": "https://nothumansearch.ai/mcp",
+      "reason": null
+    },
+    "nullary": {
+      "ok": false,
+      "url": "https://mcp.nullary.ai/mcp",
+      "reason": "unreachable: timeout"
+    },
+    "aeo": {
+      "ok": false,
+      "url": "https://api.obaron.ai/aeo/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "connect": {
+      "ok": false,
+      "url": "https://api.odei.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "shopping-optimizer": {
+      "ok": false,
+      "url": "https://mcp.offerhopper.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "banking-intelligence": {
+      "ok": false,
+      "url": "https://mcp.ohmyfin.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "openarx": {
+      "ok": false,
+      "url": "https://mcp.openarx.ai/v1/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "scout": {
+      "ok": false,
+      "url": "https://scout.optimly.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "orggen": {
+      "ok": false,
+      "url": "https://www.orggen.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "outlit": {
+      "ok": false,
+      "url": "https://mcp.outlit.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "painspotter": {
+      "ok": false,
+      "url": "https://painspotter.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "code": {
+      "ok": false,
+      "url": "https://mcp.paperlantern.ai/chat/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "search-mcp": {
+      "ok": false,
+      "url": "https://search-mcp.parallel.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "task-mcp": {
+      "ok": false,
+      "url": "https://task-mcp.parallel.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "liminality": {
+      "ok": false,
+      "url": "https://liminality.physea.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "image-processing": {
+      "ok": false,
+      "url": "https://mcp.pictomancer.ai/mcp",
+      "reason": "unreachable: URLError"
+    },
+    "pimea": {
+      "ok": false,
+      "url": "https://api.pimea.ai/mcp/",
+      "reason": "unreachable: HTTPError"
+    },
+    "plith": {
+      "ok": true,
+      "status": 200,
+      "url": "https://plith.ai/api/mcp",
+      "reason": null
+    },
+    "pocket-drives": {
+      "ok": false,
+      "url": "https://pocketdrives.ai/mcp",
+      "reason": "unreachable: timeout"
+    },
+    "preclick-mcp": {
+      "ok": false,
+      "url": "https://preclick.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "presentations-ai": {
+      "ok": false,
+      "url": "https://api.presentations.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "primeta": {
+      "ok": true,
+      "status": 200,
+      "url": "https://primeta.ai/mcp",
+      "reason": null
+    },
+    "productnow": {
+      "ok": false,
+      "url": "https://api.productnow-prod.com/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "pubfi-mcp": {
+      "ok": false,
+      "url": "https://mcp.pubfi.ai",
+      "reason": "unreachable: HTTPError"
+    },
+    "pyrimid": {
+      "ok": true,
+      "status": 200,
+      "url": "https://pyrimid.ai/api/mcp",
+      "reason": null
+    },
+    "qr-manager": {
+      "ok": false,
+      "url": "https://qr-manager.ai/api/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "quantifyme": {
+      "ok": false,
+      "url": "https://mcp.quantifyme.ai/mcp",
+      "reason": "unreachable: HTTPError"
+    },
+    "crm": {
+      "ok": true,
+      "status": 200,
+      "url": "https://www.radiusos.ai/api/mcp",
+      "reason": null
+    },
+    "skillhub-mcp": {
+      "ok": true,
+      "executable": "python",
+      "on_path": true,
+      "command": "python -m skillhub_mcp.server",
+      "reason": null
+    }
+  }
+}

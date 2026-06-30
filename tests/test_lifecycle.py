@@ -25,13 +25,13 @@ def test_install_then_uninstall(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
     _call("tools/call", {
         "name": "install",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
-    target = tmp_path / ".hermes" / "skills" / "exa"
+    target = tmp_path / ".hermes" / "skills" / "arxiv-search"
     assert target.exists()
     out = _call("tools/call", {
         "name": "uninstall",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
     assert out["uninstalled"] is True
     assert not target.exists()
@@ -51,11 +51,11 @@ def test_update_replaces_files(tmp_path, monkeypatch):
     # install first
     _call("tools/call", {
         "name": "install",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
     out = _call("tools/call", {
         "name": "update",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
     assert out["updated"] is True
     assert out["previous_install"] is True

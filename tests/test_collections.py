@@ -68,7 +68,7 @@ def test_collections_tool_returns_list():
 def test_recommend_for_installed_finds_partial(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
     # Install 3 of the 5 in ai-researcher
-    for n in ["exa", "tavily", "arxiv-search"]:
+    for n in ["arxiv-search", "huggingface-hub", "arxiv-search"]:
         _call("tools/call", {
             "name": "install", "arguments": {"name": n, "runtime": "hermes"},
         })
@@ -84,9 +84,9 @@ def test_recommend_for_installed_finds_partial(tmp_path, monkeypatch):
 
 def test_bundle_install_skip_existing(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
-    # install exa first
+    # install arxiv-search first
     _call("tools/call", {
-        "name": "install", "arguments": {"name": "exa", "runtime": "hermes"},
+        "name": "install", "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
     out = _call("tools/call", {
         "name": "bundle_install",

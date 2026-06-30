@@ -51,27 +51,27 @@ def test_resources_list_has_static_entries(tmp_path, monkeypatch):
 
 def test_resources_list_grows_after_install(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
-    _call("tools/call", {"name": "install", "arguments": {"name": "exa", "runtime": "hermes"}})
+    _call("tools/call", {"name": "install", "arguments": {"name": "arxiv-search", "runtime": "hermes"}})
     out = _call("resources/list")
     uris = [r["uri"] for r in out["resources"]]
-    assert "skillhub://skills/exa" in uris
+    assert "skillhub://skills/arxiv-search" in uris
 
 
 def test_read_resource_profile(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
-    _call("tools/call", {"name": "install", "arguments": {"name": "exa", "runtime": "hermes"}})
+    _call("tools/call", {"name": "install", "arguments": {"name": "arxiv-search", "runtime": "hermes"}})
     out = _call("resources/read", {"uri": "skillhub://profile"})
     text = out["contents"][0]["text"]
     data = json.loads(text)
-    assert "exa" in data["installed"]
+    assert "arxiv-search" in data["installed"]
 
 
 def test_read_resource_skill_manifest(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
-    _call("tools/call", {"name": "install", "arguments": {"name": "exa", "runtime": "hermes"}})
-    out = _call("resources/read", {"uri": "skillhub://skills/exa"})
+    _call("tools/call", {"name": "install", "arguments": {"name": "arxiv-search", "runtime": "hermes"}})
+    out = _call("resources/read", {"uri": "skillhub://skills/arxiv-search"})
     data = json.loads(out["contents"][0]["text"])
-    assert data["name"] == "exa"
+    assert data["name"] == "arxiv-search"
     assert "entry" in data
     assert "trust" in data
 
@@ -88,11 +88,11 @@ def test_read_resource_stats_template(tmp_path, monkeypatch):
     # record a fake rate
     _call("tools/call", {
         "name": "rate",
-        "arguments": {"name": "tavily", "success": True, "latency_ms": 100},
+        "arguments": {"name": "arxiv-search", "success": True, "latency_ms": 100},
     })
-    out = _call("resources/read", {"uri": "skillhub://stats/tavily"})
+    out = _call("resources/read", {"uri": "skillhub://stats/arxiv-search"})
     data = json.loads(out["contents"][0]["text"])
-    assert data["name"] == "tavily"
+    assert data["name"] == "arxiv-search"
     assert data["rates"] >= 1
 
 
@@ -105,12 +105,12 @@ def test_resources_templates_list_exposes_stats(tmp_path, monkeypatch):
 
 def test_read_resource_skill_index(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
-    _call("tools/call", {"name": "install", "arguments": {"name": "exa", "runtime": "hermes"}})
-    _call("tools/call", {"name": "install", "arguments": {"name": "tavily", "runtime": "hermes"}})
+    _call("tools/call", {"name": "install", "arguments": {"name": "arxiv-search", "runtime": "hermes"}})
+    _call("tools/call", {"name": "install", "arguments": {"name": "huggingface-hub", "runtime": "hermes"}})
     out = _call("resources/read", {"uri": "skillhub://skills"})
     arr = json.loads(out["contents"][0]["text"])
     names = sorted(x["name"] for x in arr)
-    assert names == ["exa", "tavily"]
+    assert names == ["arxiv-search", "huggingface-hub"]
     # trust_score is included
     assert all("trust_score" in x for x in arr)
 

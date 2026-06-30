@@ -1,0 +1,37 @@
+{"name": "browserbase", "reason": "HTTP 404"}
+{"name": "exa", "reason": "HTTP 404"}
+{"name": "context7", "reason": "HTTP 404"}
+{"name": "tavily", "reason": "HTTP 404"}
+{"name": "uuid-utils", "reason": "placeholder cmd: uuid-utils"}
+{"name": "image-ocr", "reason": "placeholder cmd: image-ocr"}
+{"name": "diff-merge", "reason": "placeholder cmd: diff-merge"}
+{"name": "http-fetch", "reason": "placeholder cmd: http-fetch"}
+{"name": "supabase", "reason": "HTTP 404"}
+{"name": "adeu", "reason": "placeholder cmd: mcp-adeu"}
+{"name": "directory", "reason": "HTTP 404"}
+{"name": "spotdb", "reason": "placeholder cmd: mcp-spotdb"}
+{"name": "deploy-app", "reason": "HTTP 404"}
+{"name": "registry", "reason": "HTTP 404"}
+{"name": "ctxl", "reason": "placeholder cmd: mcp-ctxl"}
+{"name": "computeback", "reason": "placeholder cmd: mcp-computeback"}
+{"name": "inferventis-mcp", "reason": "HTTP 404"}
+{"name": "grep", "reason": "HTTP 503"}
+{"name": "compel", "reason": "HTTP 404"}
+{"name": "sac", "reason": "placeholder cmd: mcp-sac"}
+{"name": "fincontext", "reason": "HTTP 501"}
+{"name": "optibot", "reason": "placeholder cmd: mcp-optibot"}
+{"name": "vet", "reason": "placeholder cmd: mcp-vet"}
+{"name": "database", "reason": "placeholder cmd: mcp-database"}
+{"name": "dbmcp", "reason": "placeholder cmd: mcp-dbmcp"}
+{"name": "dossier", "reason": "placeholder cmd: mcp-dossier"}
+{"name": "inflow", "reason": "HTTP 404"}
+{"name": "jeda-ai", "reason": "HTTP 404"}
+{"name": "x402-trading-signals", "reason": "HTTP 404"}
+{"name": "trust-intelligence", "reason": "HTTP 503"}
+{"name": "game-assets", "reason": "HTTP 404"}
+{"name": "mcpcap", "reason": "placeholder cmd: mcp-mcpcap"}
+{"name": "meminal", "reason": "HTTP 530"}
+{"name": "nauro", "reason": "placeholder cmd: mcp-nauro"}
+{"name": "aeo", "reason": "HTTP 530"}
+{"name": "connect", "reason": "HTTP 404"}
+{"name": "scout", "reason": "HTTP 404"}

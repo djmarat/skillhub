@@ -29,7 +29,7 @@ def test_rate_records_event(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
     out = _call("tools/call", {
         "name": "rate",
-        "arguments": {"name": "exa", "success": True, "latency_ms": 250, "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "success": True, "latency_ms": 250, "runtime": "hermes"},
     })
     assert out["recorded"] is True
     # Telemetry file was created
@@ -43,13 +43,13 @@ def test_stats_returns_aggregation(tmp_path, monkeypatch):
     for i, ok in enumerate([True, True, False]):
         _call("tools/call", {
             "name": "rate",
-            "arguments": {"name": "tavily", "success": ok, "latency_ms": 100 + i * 20},
+            "arguments": {"name": "arxiv-search", "success": ok, "latency_ms": 100 + i * 20},
         })
     out = _call("tools/call", {
         "name": "stats",
-        "arguments": {"name": "tavily", "window_days": 30},
+        "arguments": {"name": "arxiv-search", "window_days": 30},
     })
-    assert out["name"] == "tavily"
+    assert out["name"] == "arxiv-search"
     assert out["rates"] == 3
     assert 0.6 <= out["success_rate"] <= 0.7  # 2/3
 
@@ -68,10 +68,10 @@ def test_recommend_with_installed_returns_alternatives(tmp_path, monkeypatch):
     """When the user has installs already, recommend should not be empty if
     there is telemetry from other sessions in the local log."""
     monkeypatch.setenv("HOME", str(tmp_path))
-    # Install exa locally (writes profile + telemetry).
+    # Install arxiv-search locally (writes profile + telemetry).
     _call("tools/call", {
         "name": "install",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
     # Ask for recommendations.
     out = _call("tools/call", {
@@ -81,7 +81,7 @@ def test_recommend_with_installed_returns_alternatives(tmp_path, monkeypatch):
     # Response structure check (cold-start or co-occurrence — both valid).
     assert "recommendations" in out
     assert "based_on_installed" in out
-    assert "exa" in out["based_on_installed"]
+    assert "arxiv-search" in out["based_on_installed"]
 
 
 def test_recommend_cold_start_with_no_installs(tmp_path, monkeypatch):
@@ -100,7 +100,7 @@ def test_probe_returns_checks(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
     out = _call("tools/call", {
         "name": "probe",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "huggingface-hub", "runtime": "hermes"},
     })
     assert out["dry_run"] is True
     assert out["modified_user_state"] is False
@@ -123,19 +123,19 @@ def test_probe_command_entry_checks_executable(tmp_path, monkeypatch):
 
 
 def test_probe_does_not_modify_real_home(tmp_path, monkeypatch):
-    """After probe, ~/.skillhub should NOT have an exa folder under real home."""
+    """After probe, ~/.skillhub should NOT have an arxiv-search folder under real home."""
     # Use a tmp HOME that we control. The probe sets HOME=tmp_path internally,
     # so we expect that after the call, our tmp_path has a sandbox scratch dir.
     monkeypatch.setenv("HOME", str(tmp_path))
     _call("tools/call", {
         "name": "probe",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "huggingface-hub", "runtime": "hermes"},
     })
     # Nothing should remain in tmp_path/.hermes (the sandbox must be cleaned up)
     her = tmp_path / ".hermes"
     if her.exists():
-        # If a path exists at all, it shouldn't contain exa
-        assert not (her / "skills" / "exa").exists()
+        # If a path exists at all, it shouldn't contain arxiv-search
+        assert not (her / "skills" / "arxiv-search").exists()
 
 
 def test_profile_snapshot(tmp_path, monkeypatch):
@@ -146,17 +146,17 @@ def test_profile_snapshot(tmp_path, monkeypatch):
     # After install
     _call("tools/call", {
         "name": "install",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
     out = _call("tools/call", {"name": "profile", "arguments": {}})
-    assert "exa" in out["installed"]
+    assert "arxiv-search" in out["installed"]
 
 
 def test_install_appends_next_steps_hint(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
     out = _call("tools/call", {
         "name": "install",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
     assert out["installed"] is True
     assert "next_steps" in out

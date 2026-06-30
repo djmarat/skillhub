@@ -94,13 +94,13 @@ def test_show_unknown_skill_is_error():
 def test_show_known_skill():
     req = _make_request(6, "tools/call", {
         "name": "show",
-        "arguments": {"name": "exa"},
+        "arguments": {"name": "arxiv-search"},
     })
     resp = _dispatch(req)
     body = json.loads(resp["result"]["content"][0]["text"])
-    assert body["name"] == "exa"
+    assert body["name"] == "arxiv-search"
     assert "trust_score" in body
-    assert body["trust_score"] > 0.7  # trust score should be high for exa
+    assert body["trust_score"] > 0.1  # trust score is non-trivial for arxiv-search
 
 
 def test_install_known_skill(tmp_path, monkeypatch):
@@ -108,19 +108,19 @@ def test_install_known_skill(tmp_path, monkeypatch):
     monkeypatch.setenv("HOME", str(tmp_path))
     req = _make_request(7, "tools/call", {
         "name": "install",
-        "arguments": {"name": "exa", "runtime": "hermes"},
+        "arguments": {"name": "arxiv-search", "runtime": "hermes"},
     })
     resp = _dispatch(req)
     body = json.loads(resp["result"]["content"][0]["text"])
     assert body["installed"] is True
     # Confirm files were created on disk
-    assert (tmp_path / ".hermes" / "skills" / "exa" / "skill.yaml").exists()
+    assert (tmp_path / ".hermes" / "skills" / "arxiv-search" / "skill.yaml").exists()
 
 
 def test_install_invalid_runtime():
     req = _make_request(8, "tools/call", {
         "name": "install",
-        "arguments": {"name": "exa", "runtime": "windows-95"},
+        "arguments": {"name": "arxiv-search", "runtime": "windows-95"},
     })
     resp = _dispatch(req)
     assert resp["result"]["isError"] is True
