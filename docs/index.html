@@ -68,9 +68,10 @@
 
   <p>
     <span class="tag">MIT</span>
-    <span class="tag">v0.0.2</span>
-    <span class="tag">253 skills</span>
+    <span class="tag">v0.0.3</span>
+    <span class="tag">254 skills</span>
     <span class="tag">hermes · claude-code · codex · cursor</span>
+    <span class="tag">MCP server</span>
   </p>
 
   <hr>
@@ -110,6 +111,10 @@ skillhub install pdf-md -r cursor
 
 # Validate your own skill.yaml
 skillhub validate ./my-skill/skill.yaml</code></pre>
+
+  <h2>For AI agents — MCP server</h2>
+  <p>Every modern AI agent (Claude Code, Hermes, Codex, Cursor) speaks MCP. <code>skillhub</code> ships its own marketplace as an MCP server, so the agent can <code>search</code>, <code>show</code>, <code>install</code> and <code>validate</code> skills as ordinary tool calls — no copy-paste, no scraping.</p>
+  <p>Once installed, ask your agent: <em>"find a tool for converting PDFs" </em> — it will call <code>skillhub.search</code> and install the best match into your runtime, automatically.</p>
 
   <h2>Roadmap</h2>
   <ul>

@@ -22,9 +22,14 @@ the manifest format** and the discoverability workflow before we add infrastruct
 | File | What it is |
 |---|---|
 | [`manifest_spec.md`](manifest_spec.md) | Universal skill manifest, v0.1 |
-| `src/skillhub/cli.py` | CLI: `search`, `show`, `install`, `validate` |
-| `registry/skills.jsonl` | 253 curated skills imported from Official MCP Registry + SkillsMP top-by-stars |
+| `src/skillhub/cli.py` | CLI: `search`, `show`, `install`, `validate`, `publish` |
+| `src/skillhub_mcp/server.py` | MCP server exposing the same 4 tools to agents |
+| `src/skillhub/trust.py` | Trust Score v0.2 (real GitHub signals) |
+| `src/skillhub/scan.py` | Static security scanner |
+| `registry/skills.jsonl` | 254 curated skills (incl. `skillhub-mcp` itself) |
+| `registry/trust.json` | Cached trust scores (TTL 6h) |
 | `scripts/seed_from_sources.py` | Idempotent importer from public registries |
+| `scripts/enrich_tags.py` | Tag enrichment via token frequency |
 | `pyproject.toml` | `pip install -e .` |
 
 ## Install (local)
@@ -55,6 +60,26 @@ skillhub install pdf-md -r claude-code
 # Validate your own skill.yaml
 skillhub validate ./my-skill/skill.yaml
 ```
+
+## As an MCP server (`skillhub-mcp`)
+
+AI agents that speak MCP (Claude Code, Hermes, Codex, Cursor) can connect
+to skillhub directly:
+
+```json
+{
+  "mcpServers": {
+    "skillhub": {
+      "command": "python",
+      "args": ["-m", "skillhub_mcp.server"],
+      "cwd": "/path/to/skillhub"
+    }
+  }
+}
+```
+
+The server exposes four tools — `search`, `show`, `install`, `validate` — so the
+agent can install skills as ordinary tool calls (no copy-paste, no scraping).
 
 ## Why this exists
 
