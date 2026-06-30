@@ -36,12 +36,13 @@ def test_initialize():
     assert "tools" in resp["result"]["capabilities"]
 
 
-def test_tools_lists_nine_tools():
+def test_tools_lists_fifteen_tools():
     req = _make_request(2, "tools/list")
     resp = _dispatch(req)
     tools = resp["result"]["tools"]
     names = sorted(t["name"] for t in tools)
     assert names == [
+        "bundle_install", "bundle_suggest", "collection", "collections",
         "install", "probe", "profile", "rate", "recommend",
         "search", "show", "stats", "uninstall", "update", "validate",
     ]

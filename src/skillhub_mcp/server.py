@@ -41,14 +41,26 @@ from skillhub.telemetry import (  # noqa: E402
     profile_mark_rated,
     profile_snapshot,
 )
+from skillhub.collections import (  # noqa: E402
+    list_collections as coll_list,
+    get as coll_get,
+    recommend_for_installed as coll_recommend,
+)
+from skillhub.badges import (  # noqa: E402
+    compute_community_metrics,
+    tier_for,
+)
 
 
 SERVER_INFO = {
     "name": "skillhub",
-    "version": "0.0.3",
+    "version": "0.2.0",
 }
 
-SERVER_CAPABILITIES = {"tools": {}}
+SERVER_CAPABILITIES = {
+    "tools": {},
+    "resources": {"subscribe": False},
+}
 
 
 TOOLS = [
@@ -261,6 +273,70 @@ TOOLS = [
             "required": ["name", "runtime"],
         },
     },
+    {
+        "name": "collections",
+        "description": (
+            "List curated skill bundles (collections like 'AI Researcher Pack', "
+            "'PDF & Document Pack'). Each collection solves a coherent workflow. "
+            "Use this when the user has an open-ended need and you don't know "
+            "which single skill would help."
+        ),
+        "inputSchema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "collection",
+        "description": (
+            "Show one collection in full: title, description, the skills it "
+            "bundles, and the rationale. Pass either the `id` (e.g. "
+            "'ai-researcher') or a kebab-cased title."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "id": {"type": "string", "description": "Collection id or kebab title."},
+            },
+            "required": ["id"],
+        },
+    },
+    {
+        "name": "bundle_install",
+        "description": (
+            "Install every member of a collection into a chosen runtime. "
+            "Returns one result per skill (success or error). Use this when "
+            "the user wants the whole workflow at once, e.g. 'set up everything "
+            "for research'."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "id": {"type": "string"},
+                "runtime": {
+                    "type": "string",
+                    "enum": ["hermes", "claude-code", "codex", "cursor"],
+                },
+                "skip_existing": {
+                    "type": "boolean",
+                    "default": True,
+                    "description": "Skip skills already installed (default true).",
+                },
+            },
+            "required": ["id", "runtime"],
+        },
+    },
+    {
+        "name": "bundle_suggest",
+        "description": (
+            "Suggest a collection for the user based on what they already "
+            "have installed. Returns the collections where they're 'almost done' "
+            "(40%+ members installed) so the agent can recommend the rest."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "top": {"type": "integer", "minimum": 1, "maximum": 10, "default": 3},
+            },
+        },
+    },
 ]  # END TOOLS
 
 
@@ -290,18 +366,20 @@ def _tool_search(args: dict) -> dict:
         skills = [s for s in skills if runtime in s.runtime]
     real_trust = _load_real_trust()
     skills = sorted(skills, key=lambda s: -_score(s, real_trust))[:limit]
-    out = [
-        {
+    community = compute_community_metrics()
+    out = []
+    for s in skills:
+        badge = tier_for({"name": s.name, "trust": s.trust}, community)
+        out.append({
             "name": s.name,
             "version": s.version,
             "description": s.description,
             "runtime": s.runtime,
             "category": s.category,
             "tags": s.tags,
-            "trust_score": round(_score(s, real_trust), 3),
-        }
-        for s in skills
-    ]
+            "trust_score": badge["trust_score"],
+            "tier": badge["tier"],
+        })
     return _result({"count": len(out), "results": out})
 
 
@@ -310,6 +388,10 @@ def _tool_show(args: dict) -> dict:
     real_trust = _load_real_trust()
     for s in load_registry():
         if s.name == name:
+            badge = tier_for({
+                "name": s.name,
+                "trust": s.trust,
+            }, compute_community_metrics())
             return _result({
                 "name": s.name,
                 "version": s.version,
@@ -320,6 +402,8 @@ def _tool_show(args: dict) -> dict:
                 "entry": s.entry,
                 "trust": s.trust,
                 "trust_score": round(_score(s, real_trust), 3),
+                "tier": badge["tier"],
+                "tier_reasons": badge["reasons"],
             })
     return _error(f"skill not found: {name}")
 
@@ -594,17 +678,95 @@ def _tool_uninstall(args: dict) -> dict:
         return _error(f"not installed: {target_dir}")
     import shutil
     shutil.rmtree(target_dir, ignore_errors=True)
-    # Drop from profile
     prof = profile_snapshot()
     if name in prof.get("installed", []):
-        # remove only if this runtime is the unique storage
-        # (for v0.1 — simple version: drop entirely)
         pass
     return _result({
         "uninstalled": True,
         "name": name,
         "runtime": runtime,
         "path_was": str(target_dir),
+    })
+
+
+def _tool_collections(args: dict) -> dict:
+    return _result({
+        "version": "1.0.0",
+        "count": len(coll_list()),
+        "collections": coll_list(),
+    })
+
+
+def _tool_collection(args: dict) -> dict:
+    cid = args.get("id", "")
+    c = coll_get(cid)
+    if c is None:
+        return _error(f"collection not found: {cid}")
+    # Annotate each member with trust_score for richer display
+    real_trust = _load_real_trust()
+    members = []
+    for n in c.get("skills", []):
+        for s in load_registry():
+            if s.name == n:
+                members.append({
+                    "name": s.name,
+                    "version": s.version,
+                    "trust_score": round(_score(s, real_trust), 3),
+                })
+                break
+    out = dict(c)
+    out["members"] = members
+    return _result(out)
+
+
+def _tool_bundle_install(args: dict) -> dict:
+    cid = args.get("id", "")
+    runtime = args.get("runtime", "")
+    skip_existing = bool(args.get("skip_existing", True))
+    if runtime not in ("hermes", "claude-code", "codex", "cursor"):
+        return _error(f"invalid runtime: {runtime}")
+    c = coll_get(cid)
+    if c is None:
+        return _error(f"collection not found: {cid}")
+    prof = profile_snapshot()
+    already = set(prof.get("installed", []))
+    results = []
+    for name in c.get("skills", []):
+        if skip_existing and name in already:
+            results.append({"name": name, "status": "skipped", "reason": "already installed"})
+            continue
+        # find in registry
+        hit = None
+        for s in load_registry():
+            if s.name == name:
+                hit = s
+                break
+        if hit is None:
+            results.append({"name": name, "status": "error", "reason": "not in registry"})
+            continue
+        try:
+            _install_to_runtime(hit, runtime)
+            profile_mark_installed(name)
+            results.append({"name": name, "status": "installed", "version": hit.version})
+        except Exception as e:
+            results.append({"name": name, "status": "error", "reason": str(e)})
+    return _result({
+        "collection_id": c.get("id"),
+        "runtime": runtime,
+        "total": len(c.get("skills", [])),
+        "results": results,
+    })
+
+
+def _tool_bundle_suggest(args: dict) -> dict:
+    prof = profile_snapshot()
+    installed = prof.get("installed", [])
+    top = int(args.get("top") or 3)
+    suggestions = coll_recommend(installed, top=top)
+    return _result({
+        "based_on_installed": installed,
+        "count": len(suggestions),
+        "suggestions": suggestions,
     })
 
 
@@ -620,7 +782,94 @@ TOOL_HANDLERS = {
     "profile": _tool_profile,
     "update": _tool_update,
     "uninstall": _tool_uninstall,
+    "collections": _tool_collections,
+    "collection": _tool_collection,
+    "bundle_install": _tool_bundle_install,
+    "bundle_suggest": _tool_bundle_suggest,
 }
+
+
+# ----- Resources -----
+
+
+_RESOURCES_TEMPLATE = [
+    {
+        "uri": "skillhub://profile",
+        "name": "Local Skillhub Profile",
+        "description": (
+            "JSON with all installed skills, ratings and last-session "
+            "timestamp from ~/.skillhub/profile.json. Read this before "
+            "recommending tools to the user."
+        ),
+        "mimeType": "application/json",
+    },
+    {
+        "uri": "skillhub://skills",
+        "name": "Installed Skills Index",
+        "description": (
+            "JSON list of installed skills with their manifest summary "
+            "(name, version, runtime, trust_score). Refreshed on every "
+            "install / uninstall."
+        ),
+        "mimeType": "application/json",
+    },
+]
+
+
+def _list_resources() -> list[dict]:
+    """Static resources plus one per installed skill."""
+    installed = profile_snapshot().get("installed", [])
+    resources = list(_RESOURCES_TEMPLATE)
+    for name in installed:
+        resources.append({
+            "uri": f"skillhub://skills/{name}",
+            "name": f"Installed skill: {name}",
+            "description": (
+                f"Full manifest for {name}, currently installed on this machine."
+            ),
+            "mimeType": "application/json",
+        })
+    return resources
+
+
+def _read_resource(uri: str) -> str:
+    if uri == "skillhub://profile":
+        return json.dumps(profile_snapshot(), indent=2)
+    if uri == "skillhub://skills":
+        installed = profile_snapshot().get("installed", [])
+        real_trust = _load_real_trust()
+        out = []
+        for s in load_registry():
+            if s.name in installed:
+                out.append({
+                    "name": s.name,
+                    "version": s.version,
+                    "runtime": s.runtime,
+                    "trust_score": round(_score(s, real_trust), 3),
+                    "category": s.category,
+                })
+        return json.dumps(out, indent=2)
+    if uri.startswith("skillhub://stats/"):
+        # uri like 'skillhub://stats/tavily'
+        parts = uri.split("/")  # ['skillhub:', '', 'stats', 'tavily']
+        name = parts[-1] if len(parts) >= 4 else ""
+        return json.dumps(telemetry_stats(name), indent=2)
+    if uri.startswith("skillhub://skills/"):
+        # uri like 'skillhub://skills/exa' OR 'skillhub://skills' (handled above)
+        parts = uri.split("/")
+        name = parts[-1] if len(parts) >= 4 else ""
+        for s in load_registry():
+            if s.name == name:
+                return json.dumps({
+                    "name": s.name,
+                    "version": s.version,
+                    "description": s.description,
+                    "runtime": s.runtime,
+                    "entry": s.entry,
+                    "trust": s.trust,
+                }, indent=2)
+        return json.dumps({"error": f"skill not found: {name}"})
+    return json.dumps({"error": f"unknown resource URI: {uri}"})
 
 
 # ----- JSON-RPC plumbing -----
@@ -665,6 +914,41 @@ def _dispatch(req: dict) -> dict | None:
             return _rpc_result(req_id, TOOL_HANDLERS[tool](args))
         except Exception as e:
             return _rpc_error(req_id, -32603, f"tool execution failed: {e}")
+
+    # ----- Resources (auto-discovered by agent on initialize) -----
+    if method == "resources/list":
+        return _rpc_result(req_id, {"resources": _list_resources()})
+
+    if method == "resources/read":
+        uri = (params or {}).get("uri", "")
+        if not uri:
+            return _rpc_error(req_id, -32602, "missing uri parameter")
+        contents = _read_resource(uri)
+        return _rpc_result(req_id, {
+            "contents": [{
+                "uri": uri,
+                "mimeType": "application/json",
+                "text": contents,
+            }]
+        })
+
+    if method == "resources/templates/list":
+        # Templates use {name} placeholders; clients list them so they
+        # can offer "complete URI" prompts.
+        return _rpc_result(req_id, {
+            "resourceTemplates": [
+                {
+                    "uriTemplate": "skillhub://stats/{name}",
+                    "name": "Per-Skill Community Stats",
+                    "description": (
+                        "Replace {name} with a kebab-case skill name to read "
+                        "its community success_rate, latency and install "
+                        "count over the last 7 days."
+                    ),
+                    "mimeType": "application/json",
+                },
+            ]
+        })
 
     return _rpc_error(req_id, -32601, f"method not found: {method}")
 
