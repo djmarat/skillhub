@@ -36,12 +36,15 @@ def test_initialize():
     assert "tools" in resp["result"]["capabilities"]
 
 
-def test_tools_list_four_tools():
+def test_tools_lists_nine_tools():
     req = _make_request(2, "tools/list")
     resp = _dispatch(req)
     tools = resp["result"]["tools"]
     names = sorted(t["name"] for t in tools)
-    assert names == ["install", "search", "show", "validate"]
+    assert names == [
+        "install", "probe", "profile", "rate", "recommend",
+        "search", "show", "stats", "uninstall", "update", "validate",
+    ]
 
 
 def test_search_returns_records():
@@ -55,6 +58,16 @@ def test_search_returns_records():
     assert "results" in body
     sample = body["results"][0]
     assert {"name", "version", "description", "trust_score"} <= sample.keys()
+
+
+def test_tools_list_returns_full_schema():
+    req = _make_request(2, "tools/list")
+    resp = _dispatch(req)
+    for t in resp["result"]["tools"]:
+        assert "name" in t
+        assert "description" in t
+        assert "inputSchema" in t
+        assert t["inputSchema"]["type"] == "object"
 
 
 def test_search_filter_by_runtime():

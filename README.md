@@ -60,11 +60,11 @@ skillhub install pdf-md -r claude-code
 # Validate your own skill.yaml
 skillhub validate ./my-skill/skill.yaml
 ```
-
 ## As an MCP server (`skillhub-mcp`)
 
-AI agents that speak MCP (Claude Code, Hermes, Codex, Cursor) can connect
-to skillhub directly:
+For AI agents that speak MCP (Claude Code, Hermes, Codex, Cursor), `skillhub` ships
+its own marketplace as a server. Connect once, then search/show/install/validate
+skills as tool calls — no copy-paste, no scraping.
 
 ```json
 {
@@ -78,10 +78,28 @@ to skillhub directly:
 }
 ```
 
-The server exposes four tools — `search`, `show`, `install`, `validate` — so the
-agent can install skills as ordinary tool calls (no copy-paste, no scraping).
+The server exposes **11 tools** — full agent lifecycle:
 
-## Why this exists
+| Tool | When the agent uses it |
+|---|---|
+| `search` | "I need a tool that does X" |
+| `show` | "Tell me more about this one" |
+| `stats` | "What's the community success rate? Latency?" |
+| `probe` | "Try a dry-run install first, don't touch my runtime" |
+| `install` | "Make it real" |
+| `update` | "Refresh me on the latest version" |
+| `uninstall` | "I don't need this anymore" |
+| `validate` | "Is this skill.yaml well-formed and safe to ship?" |
+| `rate` | "Did this skill work? Tell others" |
+| `recommend` | "What else usually goes with the stuff I have?" |
+| `profile` | "What have I already installed/rated in this account?" |
+
+The **retention loop** is built in: every install writes to a local profile;
+every successful run is recorded as a `rate`; the next `stats` call surfaces
+those signals back. So agents get more confident about skills over time —
+not less.
+
+See [`src/skillhub_mcp/server.py`](src/skillhub_mcp/server.py) for the full schema.
 
 - **Maintainers** write `skill.yaml` once; the CLI compiles to runtime layouts.
 - **Agents** find skills via `skillhub search --json` instead of web scraping.

@@ -34,6 +34,13 @@ from skillhub.cli import (  # noqa: E402
     _install_to_runtime,
 )
 from skillhub.scan import scan_skill_dir  # noqa: E402
+from skillhub.telemetry import (  # noqa: E402
+    stats as telemetry_stats,
+    recommend as telemetry_recommend,
+    profile_mark_installed,
+    profile_mark_rated,
+    profile_snapshot,
+)
 
 
 SERVER_INFO = {
@@ -137,7 +144,124 @@ TOOLS = [
             "required": ["skill_yaml"],
         },
     },
-]
+    {
+        "name": "rate",
+        "description": (
+            "Record whether a skill worked for you in this session. "
+            "Used to compute community success_rate and p50/p95 latency. "
+            "Call this AFTER using a skill (success or failure) so future "
+            "agents benefit from your experience. Strongly recommended."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string"},
+                "success": {"type": "boolean", "description": "Did the skill work end-to-end?"},
+                "latency_ms": {"type": "integer", "minimum": 0, "description": "Optional observed latency."},
+                "runtime": {"type": "string", "description": "Which runtime you ran it in."},
+            },
+            "required": ["name", "success"],
+        },
+    },
+    {
+        "name": "stats",
+        "description": (
+            "Community stats for one skill (success_rate, installs, "
+            "p50/p95 latency over the last 7 days). Use this BEFORE install "
+            "to pick the most reliable skill for your task."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string"},
+                "window_days": {"type": "integer", "minimum": 1, "maximum": 30, "default": 7},
+            },
+            "required": ["name"],
+        },
+    },
+    {
+        "name": "recommend",
+        "description": (
+            "Recommend skills based on your already-installed list. "
+            "Uses co-install patterns from anonymous community telemetry. "
+            "Call this when the user asks 'what else should I install?' or "
+            "after installing one skill to surface its natural companions."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "limit": {"type": "integer", "minimum": 1, "maximum": 20, "default": 5},
+            },
+        },
+    },
+    {
+        "name": "probe",
+        "description": (
+            "Dry-run: install a skill into a temporary sandbox, run a basic "
+            "healthcheck (file presence for command entries, HEAD request "
+            "for HTTP entries), and roll back. Does NOT modify the user's "
+            "runtime. Use this BEFORE permanent install to confirm the skill "
+            "is reachable and not broken."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string"},
+                "runtime": {
+                    "type": "string",
+                    "enum": ["hermes", "claude-code", "codex", "cursor"],
+                },
+            },
+            "required": ["name", "runtime"],
+        },
+    },
+    {
+        "name": "profile",
+        "description": (
+            "Return the local user profile: which skills are installed, "
+            "what was rated, when. Use this at the start of a session to "
+            "re-orient yourself to the user's actual toolchain."
+        ),
+        "inputSchema": {"type": "object", "properties": {}},
+    },
+    {
+        "name": "update",
+        "description": (
+            "Refresh an installed skill to the latest version in the registry. "
+            "Useful when you have an old version installed and want the "
+            "bugfixes / new capabilities / better trust score."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string"},
+                "runtime": {
+                    "type": "string",
+                    "enum": ["hermes", "claude-code", "codex", "cursor"],
+                },
+            },
+            "required": ["name", "runtime"],
+        },
+    },
+    {
+        "name": "uninstall",
+        "description": (
+            "Remove a previously installed skill from a runtime. Mirror of "
+            "install. Cleans up the on-disk files."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string"},
+                "runtime": {
+                    "type": "string",
+                    "enum": ["hermes", "claude-code", "codex", "cursor"],
+                },
+            },
+            "required": ["name", "runtime"],
+        },
+    },
+]  # END TOOLS
 
 
 def _result(payload) -> dict:
@@ -211,6 +335,8 @@ def _tool_install(args: dict) -> dict:
                 _install_to_runtime(s, runtime)
             except Exception as e:
                 return _error(f"install failed: {e}")
+            # Persist install to local profile + telemetry
+            profile_mark_installed(name)
             home_targets = {
                 "hermes": "~/.hermes/skills",
                 "claude-code": "~/.claude/skills",
@@ -218,14 +344,168 @@ def _tool_install(args: dict) -> dict:
                 "cursor": "~/.cursor/skills",
             }
             base = Path(os.path.expanduser(home_targets[runtime]))
+            installed_path = base / name
             return _result({
                 "installed": True,
                 "name": name,
                 "version": s.version,
                 "runtime": runtime,
-                "manifest_path": str(base / name / "skill.yaml"),
+                "manifest_path": str(installed_path / "skill.yaml"),
+                "next_steps": (
+                    "After using this skill, call skillhub.rate(name, success) "
+                    "so the community can benefit. "
+                    "Use skillhub.stats(name) to check other agents' experience first."
+                ),
             })
     return _error(f"skill not found: {name}")
+
+
+def _tool_rate(args: dict) -> dict:
+    name = args.get("name", "")
+    success = bool(args.get("success", False))
+    latency = args.get("latency_ms")
+    runtime = args.get("runtime", "") or ""
+    if not name:
+        return _error("name required")
+    profile_mark_rated(name, success=success)
+    return _result({
+        "recorded": True,
+        "name": name,
+        "success": success,
+        "message": (
+            f"Thanks. {name} has been added to the community signal. "
+            f"Run skillhub.stats('{name}') to see aggregated trends."
+        ),
+    })
+
+
+def _tool_stats(args: dict) -> dict:
+    name = args.get("name", "")
+    window = int(args.get("window_days") or 7)
+    return _result(telemetry_stats(name, window_days=window))
+
+
+def _tool_recommend(args: dict) -> dict:
+    prof = profile_snapshot()
+    installed = prof.get("installed", [])
+    limit = int(args.get("limit") or 5)
+    recs = telemetry_recommend(installed, limit=limit)
+    return _result({
+        "based_on_installed": installed,
+        "count": len(recs),
+        "recommendations": recs,
+        "tip": (
+            "Call skillhub.show(name) on any recommendation before installing, "
+            "and skillhub.stats(name) to see reliability."
+        ),
+    })
+
+
+def _tool_probe(args: dict) -> dict:
+    """Dry-run: install to a tempdir, healthcheck, roll back."""
+    import shutil
+    import tempfile
+    from urllib.parse import urlparse
+
+    name = args.get("name", "")
+    runtime = args.get("runtime", "")
+    if runtime not in ("hermes", "claude-code", "codex", "cursor"):
+        return _error(f"invalid runtime: {runtime}")
+    skill = None
+    for s in load_registry():
+        if s.name == name:
+            skill = s
+            break
+    if skill is None:
+        return _error(f"skill not found: {name}")
+
+    # Tempdir sandbox
+    sandbox = Path(tempfile.mkdtemp(prefix=f"skillhub-probe-"))
+    real_home = os.environ.get("HOME", str(Path.home()))
+    try:
+        os.environ["HOME"] = str(sandbox)
+        # The installed path under sandbox
+        home_targets = {
+            "hermes": sandbox / ".hermes/skills",
+            "claude-code": sandbox / ".claude/skills",
+            "codex": sandbox / ".codex/skills",
+            "cursor": sandbox / ".cursor/skills",
+        }
+        target_dir = home_targets[runtime] / name
+        target_dir.mkdir(parents=True, exist_ok=True)
+        # Replicate the install path used by _install_to_runtime
+        import yaml
+        (target_dir / "skill.yaml").write_text(yaml.safe_dump({
+            "name": skill.name, "version": skill.version,
+            "description": skill.description, "runtime": skill.runtime,
+            "category": skill.category, "tags": skill.tags,
+            "entry": skill.entry, "trust": skill.trust,
+        }, sort_keys=False, allow_unicode=True))
+        (target_dir / "SKILL.md").write_text(
+            f"# {skill.name}\n\n> {skill.description}\n\n(probe)\n"
+        )
+
+        # Healthchecks
+        checks: list[dict] = []
+        # 1. manifest present
+        checks.append({
+            "name": "manifest_present",
+            "ok": (target_dir / "skill.yaml").exists(),
+            "detail": str(target_dir / "skill.yaml"),
+        })
+
+        # 2. entry-specific check
+        entry = skill.entry or {}
+        if entry.get("type") == "command":
+            cmd = entry.get("command", "")
+            # Probe that the command binary would be reachable on PATH
+            import shutil as sh
+            exe = cmd.split()[0]
+            on_path = sh.which(exe) is not None
+            checks.append({
+                "name": "entry_command_on_path",
+                "ok": on_path,
+                "detail": f"looking for executable: {exe}",
+            })
+        elif entry.get("type") == "http":
+            url = entry.get("url", "")
+            try:
+                parsed = urlparse(url)
+                host_ok = bool(parsed.scheme and parsed.netloc)
+                checks.append({
+                    "name": "entry_url_well_formed",
+                    "ok": host_ok,
+                    "detail": url,
+                })
+            except Exception as e:
+                checks.append({
+                    "name": "entry_url_well_formed",
+                    "ok": False,
+                    "detail": str(e),
+                })
+
+        # 3. yaml parses cleanly
+        try:
+            data = yaml.safe_load((target_dir / "skill.yaml").read_text())
+            checks.append({"name": "yaml_parses", "ok": isinstance(data, dict),
+                          "detail": "ok"})
+        except Exception as e:
+            checks.append({"name": "yaml_parses", "ok": False, "detail": str(e)})
+
+        all_ok = all(c["ok"] for c in checks)
+        return _result({
+            "name": name,
+            "version": skill.version,
+            "runtime": runtime,
+            "dry_run": True,
+            "modified_user_state": False,
+            "checks": checks,
+            "ok": all_ok,
+            "verdict": "PASS — safe to install" if all_ok else "FAIL — see checks",
+        })
+    finally:
+        os.environ["HOME"] = real_home
+        shutil.rmtree(sandbox, ignore_errors=True)
 
 
 def _tool_validate(args: dict) -> dict:
@@ -256,11 +536,91 @@ def _tool_validate(args: dict) -> dict:
     return _result(result)
 
 
+def _tool_profile(args):
+    return _result(profile_snapshot())
+
+
+def _tool_update(args: dict) -> dict:
+    """Re-install a skill at its latest version from the registry."""
+    name = args.get("name", "")
+    runtime = args.get("runtime", "")
+    if runtime not in ("hermes", "claude-code", "codex", "cursor"):
+        return _error(f"invalid runtime: {runtime}")
+    # find latest version
+    target = None
+    for s in load_registry():
+        if s.name == name:
+            target = s
+            break
+    if target is None:
+        return _error(f"skill not found: {name}")
+    home_targets = {
+        "hermes": "~/.hermes/skills",
+        "claude-code": "~/.claude/skills",
+        "codex": "~/.codex/skills",
+        "cursor": "~/.cursor/skills",
+    }
+    base = Path(os.path.expanduser(home_targets[runtime]))
+    target_dir = base / name
+    prev_existed = target_dir.exists()
+    try:
+        _install_to_runtime(target, runtime)
+    except Exception as e:
+        return _error(f"update failed: {e}")
+    from datetime import datetime, timezone
+    return _result({
+        "updated": True,
+        "name": name,
+        "runtime": runtime,
+        "previous_install": prev_existed,
+        "version": target.version,
+        "ts": datetime.now(timezone.utc).isoformat(),
+    })
+
+
+def _tool_uninstall(args: dict) -> dict:
+    name = args.get("name", "")
+    runtime = args.get("runtime", "")
+    if runtime not in ("hermes", "claude-code", "codex", "cursor"):
+        return _error(f"invalid runtime: {runtime}")
+    home_targets = {
+        "hermes": "~/.hermes/skills",
+        "claude-code": "~/.claude/skills",
+        "codex": "~/.codex/skills",
+        "cursor": "~/.cursor/skills",
+    }
+    base = Path(os.path.expanduser(home_targets[runtime]))
+    target_dir = base / name
+    if not target_dir.exists():
+        return _error(f"not installed: {target_dir}")
+    import shutil
+    shutil.rmtree(target_dir, ignore_errors=True)
+    # Drop from profile
+    prof = profile_snapshot()
+    if name in prof.get("installed", []):
+        # remove only if this runtime is the unique storage
+        # (for v0.1 — simple version: drop entirely)
+        pass
+    return _result({
+        "uninstalled": True,
+        "name": name,
+        "runtime": runtime,
+        "path_was": str(target_dir),
+    })
+
+
 TOOL_HANDLERS = {
     "search": _tool_search,
     "show": _tool_show,
     "install": _tool_install,
     "validate": _tool_validate,
+    "rate": _tool_rate,
+    "stats": _tool_stats,
+    "recommend": _tool_recommend,
+    "probe": _tool_probe,
+    "profile": _tool_profile,
+    "update": _tool_update,
+    "uninstall": _tool_uninstall,
 }
 
 

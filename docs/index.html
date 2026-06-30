@@ -68,10 +68,10 @@
 
   <p>
     <span class="tag">MIT</span>
-    <span class="tag">v0.0.3</span>
+    <span class="tag">v0.1.0</span>
     <span class="tag">254 skills</span>
+    <span class="tag">11 MCP tools</span>
     <span class="tag">hermes · claude-code · codex · cursor</span>
-    <span class="tag">MCP server</span>
   </p>
 
   <hr>
@@ -113,8 +113,8 @@ skillhub install pdf-md -r cursor
 skillhub validate ./my-skill/skill.yaml</code></pre>
 
   <h2>For AI agents — MCP server</h2>
-  <p>Every modern AI agent (Claude Code, Hermes, Codex, Cursor) speaks MCP. <code>skillhub</code> ships its own marketplace as an MCP server, so the agent can <code>search</code>, <code>show</code>, <code>install</code> and <code>validate</code> skills as ordinary tool calls — no copy-paste, no scraping.</p>
-  <p>Once installed, ask your agent: <em>"find a tool for converting PDFs" </em> — it will call <code>skillhub.search</code> and install the best match into your runtime, automatically.</p>
+  <p>Every modern AI agent (Claude Code, Hermes, Codex, Cursor) speaks MCP. <code>skillhub</code> ships its own marketplace as an MCP server, so the agent can <code>search</code>, <code>show</code>, <code>stats</code>, <code>probe</code>, <code>install</code>, <code>update</code>, <code>uninstall</code>, <code>validate</code>, <code>rate</code>, <code>recommend</code> and <code>profile</code> skills as ordinary tool calls — no copy-paste, no scraping.</p>
+  <p>Once installed, ask your agent: <em>"find a tool for converting PDFs" </em> — it will call <code>skillhub.search</code>, surface the best matches, and after running them call <code>skillhub.rate</code>. The next session sees your agent's history via <code>skillhub.profile</code> and improves recommendations. This is the loop that keeps agents coming back.</p>
 
   <h2>Roadmap</h2>
   <ul>
