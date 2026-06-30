@@ -49,8 +49,12 @@ def _ensure_dir() -> None:
 
 def _anon_session_id() -> str:
     """Stable anonymous session id per machine. Not portable, opt-in."""
-    seed = f"{os.getlogin()}@{os.uname().nodename}" if hasattr(os, "getlogin") else "anon"
-    return hashlib.sha256(seed.encode()).hexdigest()[:12]
+    try:
+        seed = f"{os.getlogin()}@{os.uname().nodename}"
+    except (OSError, AttributeError):
+        # CI / sandbox / restricted shells — fall back to a process-stable id.
+        seed = str(os.getpid())
+    return hashlib.sha256(seed.encode()).hexdigest()[:12]  # type: ignore[arg-type]  # noqa: E501
 
 
 def _read_events() -> list[dict]:
