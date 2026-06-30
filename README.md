@@ -30,16 +30,25 @@ the manifest format** and the discoverability workflow before we add infrastruct
 | `registry/trust.json` | Cached trust scores (TTL 6h) |
 | `scripts/seed_from_sources.py` | Idempotent importer from public registries |
 | `scripts/enrich_tags.py` | Tag enrichment via token frequency |
-| `pyproject.toml` | `pip install -e .` |
+| `pyproject.toml` | `uv tool install -e .` |
 
 ## Install (local)
 
+Requires [uv](https://github.com/astral-sh/uv) (a fast Python package manager).
+On macOS: `brew install uv`. The CLI is then globally available as `skillhub`.
+
 ```bash
-git clone <repo>
+git clone https://github.com/djmarat/skillhub
 cd skillhub
-python -m venv .venv && source .venv/bin/activate
-pip install -e .
-skillhub search "pdf"
+uv tool install -e .            # installs skillhub + skillhub-mcp
+skillhub search "pdf"           # try it
+```
+
+To re-install after pulling new code:
+
+```bash
+cd skillhub
+uv tool install -e . --force
 ```
 
 ## Usage
@@ -70,6 +79,18 @@ skills as tool calls — no copy-paste, no scraping.
 {
   "mcpServers": {
     "skillhub": {
+      "command": "skillhub-mcp"
+    }
+  }
+}
+```
+
+If you don't have `uv tool` installed globally, fall back to the dev form:
+
+```json
+{
+  "mcpServers": {
+    "skillhub": {
       "command": "python",
       "args": ["-m", "skillhub_mcp.server"],
       "cwd": "/path/to/skillhub"
@@ -78,7 +99,7 @@ skills as tool calls — no copy-paste, no scraping.
 }
 ```
 
-The server exposes **11 tools** — full agent lifecycle:
+The server exposes **15 tools** — full agent lifecycle:
 
 | Tool | When the agent uses it |
 |---|---|
@@ -93,6 +114,10 @@ The server exposes **11 tools** — full agent lifecycle:
 | `rate` | "Did this skill work? Tell others" |
 | `recommend` | "What else usually goes with the stuff I have?" |
 | `profile` | "What have I already installed/rated in this account?" |
+| `collections` | "List curated bundles (AI Researcher, PDF, …)" |
+| `collection` | "Show one bundle details" |
+| `bundle_install` | "Install an entire bundle" |
+| `bundle_suggest` | "What bundle fits my installed skills?" |
 
 The **retention loop** is built in: every install writes to a local profile;
 every successful run is recorded as a `rate`; the next `stats` call surfaces

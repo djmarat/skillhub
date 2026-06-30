@@ -89,9 +89,10 @@
   <h2>Install</h2>
 <pre><code>git clone https://github.com/djmarat/skillhub
 cd skillhub
-python -m venv .venv &amp;&amp; source .venv/bin/activate
-pip install -e .
+uv tool install -e .            # installs skillhub + skillhub-mcp
 skillhub search "pdf"</code></pre>
+
+  <p>Requires <a href="https://github.com/astral-sh/uv">uv</a> (<code>brew install uv</code> on macOS). The CLI is then globally available as <code>skillhub</code>.</p>
 
   <h2>Usage</h2>
 <pre><code># Search — human table
