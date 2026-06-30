@@ -1,0 +1,1520 @@
+{
+  "pdf-md": {
+    "score": 0.175,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "json-shape": {
+    "score": 0.175,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "agentsearch": {
+    "score": 0.2,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "browserbase": {
+    "score": 0.125,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "exa": {
+    "score": 0.9625464106147243,
+    "stars": 4645,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "context7": {
+    "score": 0.9500000000000001,
+    "stars": 58349,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "tavily": {
+    "score": 0.925103422262601,
+    "stars": 2158,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "git-summary": {
+    "score": 0.05,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "shell-safe": {
+    "score": 0.175,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "env-doctor": {
+    "score": 0.175,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "uuid-utils": {
+    "score": 0.07500000000000001,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "regex-lab": {
+    "score": 0.07500000000000001,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "image-ocr": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "trace-loop": {
+    "score": 0.175,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "diff-merge": {
+    "score": 0.175,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "http-fetch": {
+    "score": 0.2,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "huggingface-hub": {
+    "score": 0.2,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "supabase": {
+    "score": 0.2,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "github-pr-review": {
+    "score": 0.175,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "arxiv-search": {
+    "score": 0.175,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "docs-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "trading": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "atars-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "abmeter": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mcp-server": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "adeu": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "google-ads": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "meta-ads-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "agentberg": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "agentdm": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "graffeo": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "directory": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "agentra": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "catalog": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "spotdb": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "alphacreek-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "alpic-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "test-mcp-server": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "ambix": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "anki-mcp-server": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "anki-mcp-server-addon": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "armor-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "anzenna": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "deploy-app": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "registry": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "artidrop": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "supershopping": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "paseo": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "auralogs": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "docs": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "contextlayer-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "ctxl": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "ctxl-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "computeback": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "travel": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "auxen": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "health": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "backengine-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "inferventis-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "bareun": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "baselight": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "local-commerce": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "bittlebits": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "universal-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "grep": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "scan": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "signals": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "bowmark": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "knowledge-base": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "bringyour": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "bunzee": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "buron": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "buyersense": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "buywhere-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "catalog-api": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "embedded-docs": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "byteray-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "server": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "calfeed": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "canaryusers": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "canvora": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "library": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "intelligence": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "salesforce-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "compliance": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "hmda": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "markets": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "contabo": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "hapi-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "lenny-rachitsky-podcast": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "linkedin": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "openai-tools": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "petstore": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "skills-search": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "strava": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "compel": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "constellation-finance-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "conveo": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "cookiy": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "notes": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "crane-ledger": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "counterparty-intelligence": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "d50-platform": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "dataforb2b": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "creator-skill": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "creator-skill-v2": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "aws-pricing-calculator": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "interactive-video-guide": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "dimetrics": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "tvwizard": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "donethat": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "drillr": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "gateway": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "dynamic-feed": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "sac": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "districts": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "enyal": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "xmp4": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mcp-explorium": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "ezel": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "fantopy": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "document-processing": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "filepad": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "filtrix-ai": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "fincontext": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "domain-sales": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "governance-platform": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "optibot": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "throughline": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "vet": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mcp-api": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "gondola": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "shopify-admin-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "web-search": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "database": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "dbmcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "texts": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "hivewiki": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "i18n-agent": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "dossier": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "inflow": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "the-stall": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "inventory-hero": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "seo-audit": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "ironscout": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "jeda-ai": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "gpu": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "just-publish": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "strata": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "kolens-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "kontato": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "krtr": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "x402-trading-signals": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "lawyer-search": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "trust-intelligence": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "linkguard-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "lithtrix-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mlp-tax": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "game-assets": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "insights": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "marketintell": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "masnavi": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "resume": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "analytics": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mcpcap": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mrc-data": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "squad": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "meminal": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "web-agent": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "demo-booking": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mcp-workspace": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "mrmarket-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "memq": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "myriade": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "ens-tools": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "nashboard-merchants": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "nauro": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "human-state": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "newzai": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "news-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "nexustoken-sdk": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "ninar": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "logic-server": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "search": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "brand-intelligence": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "nullary": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "aeo": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "connect": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "shopping-optimizer": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "banking-intelligence": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "openarx": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "scout": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "orggen": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "outlit": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "painspotter": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "code": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "search-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "task-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "liminality": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "image-processing": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "pimea": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "plith": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "pocket-drives": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "preclick-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "presentations-ai": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "primeta": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "productnow": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "pubfi-mcp": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "pyrimid": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "qr-manager": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "quantifyme": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "crm": {
+    "score": 0.15000000000000002,
+    "stars": 0,
+    "recency_days": 9999,
+    "cached_at": 1782827065.0001652
+  },
+  "agent-transcript": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "autoreview": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "channel-message-flows": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "claw-score": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "clawdtributor": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "clawsweeper": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "control-ui-e2e": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "crabbox": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "discord-clawd": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "discord-user-post": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "discrawl": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "gitcrawl": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "graincrawl": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "notcrawl": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-changelog-update": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-debugging": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-docker-e2e-authoring": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-ghsa-maintainer": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-landable-bug-sweep": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-parallels-smoke": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-pr-maintainer": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-qa-testing": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-refactor-docs": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-secret-scanning-maintainer": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-small-bugfix-sweep": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-test-heap-leaks": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-test-performance": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "openclaw-testing": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "parallels-discord-roundtrip": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "release-openclaw-announcement": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "release-openclaw-ci": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "release-openclaw-mac": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "release-openclaw-maintainer": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "release-openclaw-nightly": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "release-openclaw-plugin-testing": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "security-triage": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "slacrawl": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "tag-duplicate-prs-issues": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "technical-documentation": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  },
+  "telegram-crabbox-e2e-proof": {
+    "score": 0.9,
+    "stars": 381113,
+    "recency_days": 0,
+    "cached_at": 1782827065.0001652
+  }
+}

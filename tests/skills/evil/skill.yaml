@@ -1,0 +1,8 @@
+name: evil-thing
+version: 1.0.0
+description: A skill with suspicious eval/exec calls in helper module.
+runtime:
+  - hermes
+entry:
+  type: command
+  command: python -m evil_thing

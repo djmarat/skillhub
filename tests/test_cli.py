@@ -11,6 +11,7 @@ from skillhub.cli import (
     render_table,
     trust_score,
 )
+from skillhub.trust import refresh_trust, load_cache as load_trust_cache
 
 
 def test_load_registry_returns_at_least_20():

@@ -1,0 +1,1 @@
+{"name": "inflow", "version": "1.0.0", "description": "Inflow MCP Server", "runtime": ["hermes", "claude-code", "codex", "cursor"], "category": "other", "tags": [], "entry": {"type": "http", "url": "https://app.inflowpay.ai/mcp"}, "trust": {"source": "official", "license": "MIT", "security_passes": 0}}
