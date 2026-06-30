@@ -13,9 +13,9 @@ from skillhub.cli import (
 )
 
 
-def test_load_registry_returns_20():
+def test_load_registry_returns_at_least_20():
     skills = load_registry()
-    assert len(skills) == 20
+    assert len(skills) >= 20
     assert all(isinstance(s, Skill) for s in skills)
 
 

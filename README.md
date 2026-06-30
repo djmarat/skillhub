@@ -23,7 +23,8 @@ the manifest format** and the discoverability workflow before we add infrastruct
 |---|---|
 | [`manifest_spec.md`](manifest_spec.md) | Universal skill manifest, v0.1 |
 | `src/skillhub/cli.py` | CLI: `search`, `show`, `install`, `validate` |
-| `registry/skills.jsonl` | 20 seed skills (curated by hand for v0) |
+| `registry/skills.jsonl` | 253 curated skills imported from Official MCP Registry + SkillsMP top-by-stars |
+| `scripts/seed_from_sources.py` | Idempotent importer from public registries |
 | `pyproject.toml` | `pip install -e .` |
 
 ## Install (local)
